@@ -68,3 +68,23 @@ plot(SIMS~GRIP,data=data)
 this graph shows a grip strength increases the sim score increases as well there is a possible trend between grip strength and sim score. 
 
 ### Numerical results 
+
+```{r}
+cor(data$SIMS, data$GRIP)
+```
+
+We have a postive correlation with noise (aka scatter) 
+
+### Inference 
+
+```{r}
+Model2 = lm(SIMS~GRIP, data = data)
+print(summary(Model2))
+```
+
+```{r}
+plot(SIMS~GRIP,data=data)
+abline(Model2, col="blue")
+```
+
+the line in the data shows the best linear fit. for an increase of 1 in arm strength sim scire increases by 0.0545. 
