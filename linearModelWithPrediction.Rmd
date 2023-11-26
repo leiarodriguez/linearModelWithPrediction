@@ -34,5 +34,37 @@ cor(data$SIMS, data$ARM)
 
 we have a postive correlation, with noise(aka scatter). 
 
+### Inference 
 
+```{r}
+Model1 = lm(SIMS~ARM, data = data)
+print(summary(Model1))
+```
 
+```{r}
+plot(SIMS~ARM,data=data)
+abline(Model1, col="blue")
+```
+
+the line in the data shows the best linear fit. for an increase of 1 in arm strength sim scire increases by 0.0545. 
+
+```{r}
+newdata = data.frame(ARM = 88, GRIP = 94)
+predict.lm(Model1, newdata, interval="prediction")
+```
+
+## Model2 
+
+find an eqaution that  expresses SIMS as a function of GRIP  
+
+## Results 
+
+### Greaphical Results 
+
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+this graph shows a grip strength increases the sim score increases as well there is a possible trend between grip strength and sim score. 
+
+### Numerical results 
